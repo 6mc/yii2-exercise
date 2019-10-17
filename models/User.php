@@ -9,9 +9,15 @@ namespace app\models;
  */
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+public function rules()
+{
+return [
+        // the name, email, subject and body attributes are required
+        [['first_name', 'email', 'phone', 'last_name'], 'required']
 
 
-
+    ];
+}
 
     public static function tableName()   
     {   
