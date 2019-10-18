@@ -9,7 +9,7 @@ namespace app\commands;
 
 use yii\console\Controller;
 use app\models\User;
-
+use app\models\Loan;
 /**
  * This command echoes the first argument that you have entered.
  *
@@ -24,7 +24,33 @@ class ImportController extends Controller
      * This command echoes what you have entered as the message.
      * @param string $message the message to be echoed.
      */
-    public function actionStore()
+
+    public function actionLoans()
+    {
+
+        $loans  = json_decode( file_get_contents("./loans.json"), true);
+        
+        foreach ($loans as $loan) {
+            $model = new Loan;
+          //  $model->load($loan);
+            $model->id = $loan['id'];
+            $model->user_id = $loan['user_id'];
+            $model->amount = $loan['amount'];
+            $model->interest = $loan['interest'];
+            $model->duration = $loan['duration'];
+            $model->campaign = $loan['campaign'];
+            $model->status = $loan['status'];
+            $model->start_date = date("Y-m-d", $loan['start_date']);
+            $model->end_date = date("Y-m-d", $loan['end_date']);
+            $model->save();
+        }
+
+            echo "Records Added Successfully";
+    }
+
+
+
+    public function actionUsers()
     {
      //   echo $message . "\n";
     
