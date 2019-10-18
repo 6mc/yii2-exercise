@@ -12,10 +12,15 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 public function rules()
 {
 return [
-        // the name, email, subject and body attributes are required
-        [['first_name', 'email', 'phone', 'last_name'], 'required']
-
-
+       
+        [['first_name', 'email', 'phone', 'last_name','personal_code'], 'required'],
+        ['personal_code', 'integer'],
+        [['first_name','last_name'], 'match', 'pattern'=>'/^[a-zA-ZñÑáéíóúñÁÉÍÓÚÑ\s]+$/'],
+        ['phone','integer'],
+        ['email','email'],
+        ['active', 'boolean'],
+        ['dead', 'boolean'],
+        ['lang', 'string']
     ];
 }
 

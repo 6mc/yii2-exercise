@@ -68,9 +68,9 @@ class UserController extends Controller
 
       //  return Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-           // return $this->redirect(['view', 'id' => $model->id]);
-        return  Yii::$app->request->post();
+        if ($model->load(Yii::$app->request->post()) && $model->validate() &&  $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+       // return  Yii::$app->request->post();
         }
 
         return $this->render('create', [
