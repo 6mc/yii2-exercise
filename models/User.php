@@ -71,6 +71,14 @@ return [
     /**
      * {@inheritdoc}
      */
+        public function age()
+    {
+       $date = new \DateTime(substr($this->personal_code, 5,2)."-".substr($this->personal_code, 3, 2) ."-" . strval(18 + ceil(substr($this->personal_code, 0, 1)/2-1))  . substr($this->personal_code, 1, 2));
+        $now = new \DateTime();
+      $interval = $now->diff($date);
+        return $interval->y;
+    }
+
     public function getId()
     {
         return $this->id;
