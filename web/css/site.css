@@ -3,6 +3,19 @@ body {
     height: 100%;
 }
 
+.table {
+	
+	 border-collapse: collapse;
+	
+}
+
+.td{
+    border: solid 1px;
+    border-left: none;
+    border-right: none;
+}
+
+
 .wrap {
     min-height: 100%;
     height: auto;
