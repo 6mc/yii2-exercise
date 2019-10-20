@@ -37,6 +37,7 @@ class LoanController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Loan::find(),
+            'pagination' => [ 'pageSize' => 10 ]
         ]);
 
         return $this->render('index', [

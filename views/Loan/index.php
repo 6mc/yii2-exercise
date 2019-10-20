@@ -25,6 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
    
         'options' => ['class'=>'grid'],
        'rowOptions'  => ['class'=>'td'],
+       'filterRowOptions'  => ['class'=>'filterrow'],
+       'captionOptions'  => ['class'=>'caps'],
+       'headerRowOptions'  => ['class'=>'headerrow'],
        'tableOptions'  => ['class'=>'table'],
        // 'columns'  =>['class'=>'row'],
         'dataProvider' => $dataProvider,
