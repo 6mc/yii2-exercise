@@ -39,6 +39,7 @@ class Loan extends \yii\db\ActiveRecord
             [['amount', 'interest'], 'number'],
             [['start_date', 'end_date'], 'safe'],
             [['status'], 'boolean'],
+           [['status'], 'default', 'value'=> true] 
         ];
     }
 

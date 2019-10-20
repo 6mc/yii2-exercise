@@ -1,11 +1,13 @@
 html,
 body {
     height: 100%;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 a {
 	
 	color:black;
+	
 }
 
 .table {
@@ -17,6 +19,15 @@ a {
 .headerrow{
 	
 } 
+
+.deactive {
+	color: #d3d3d3;
+}
+
+
+.red {
+	color:red;
+}
 
 .td{
     border: solid 1px;

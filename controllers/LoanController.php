@@ -66,7 +66,7 @@ class LoanController extends Controller
     public function actionCreate()
     {
         $model = new Loan();
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           
 

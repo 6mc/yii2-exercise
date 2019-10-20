@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\Loan;
-use Yii;
+//use Yii;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,7 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
    
         'options' => ['class'=>'grid'],
-       'rowOptions'  => ['class'=>'td'],
+       //'rowOptions'  => ['class'=>'td'],
+       'rowOptions'  => ['class'=> 'td'],
        'filterRowOptions'  => ['class'=>'filterrow'],
        'captionOptions'  => ['class'=>'caps'],
        'headerRowOptions'  => ['class'=>'headerrow'],
