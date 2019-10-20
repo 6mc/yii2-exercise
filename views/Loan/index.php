@@ -51,3 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </div>
+<script type="text/javascript"> 
+    rows = document.getElementsByClassName('td');
+
+    for (var i = rows.length - 1; i >= 0; i--) {
+        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
+    }
+
+</script>

@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\jui\DatePicker;
+use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Loan */
 /* @var $form yii\widgets\ActiveForm */
@@ -21,12 +21,20 @@ use yii\jui\DatePicker;
     <?= $form->field($model, 'duration')->textInput() ?>
 
 <?= $form->field($model, 'start_date')->widget(DatePicker::classname(), [
-    'dateFormat' => 'yyyy-MM-dd',
+    'options' => ['autocomplete'=>'off'],
+    'pluginOptions' => [
+        'format' => 'yyyy-MM-dd',
+        'todayHighlight' => true
+    ]
 ]) ?>
 
 
 <?= $form->field($model, 'end_date')->widget(DatePicker::classname(), [
-    'dateFormat' => 'yyyy-MM-dd',
+       'options' => ['autocomplete'=>'off'],
+       'pluginOptions' => [
+        'format' => 'yyyy-MM-dd',
+        'todayHighlight' => true
+    ]
 ]) ?>
 
 

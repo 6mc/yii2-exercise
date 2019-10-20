@@ -16,7 +16,8 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"> 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,14 +77,6 @@ AppAsset::register($this);
     </div>
 </footer>
 
-<script type="text/javascript"> 
-    rows = document.getElementsByClassName('td');
-
-    for (var i = rows.length - 1; i >= 0; i--) {
-        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
-    }
-
-</script>
 
 
 <?php $this->endBody() ?>
