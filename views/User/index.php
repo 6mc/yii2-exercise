@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-print_r( Loan::find()->where(['id'=>'36470'])->one()->user);
+//print_r( Loan::find()->where(['id'=>'36470'])->one()->user->first_name);
 
 //Yii::$app->User->age()
 ?></p>

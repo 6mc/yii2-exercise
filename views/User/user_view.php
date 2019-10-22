@@ -1,6 +1,7 @@
 <?php   
 use yii\helpers\Html;   
 use yii\widgets\ActiveForm;   
+ use app\models\Loan;
 ?>   
    
 <?php $form = ActiveForm::begin(); ?>   
@@ -19,3 +20,11 @@ use yii\widgets\ActiveForm;
      isNewRecord ? 'btn btn-success' : 'btn btn-primary']); ?>   
    
    <?php ActiveForm::end(); ?>  
+
+    <?php $loans =  User::find()->where(['id'=>'7472'])->one()->loans;
+        echo "<h1>string</h1>";
+          foreach ($loans as $loan) {
+            echo $loan->id;
+          }
+
+     ?>
