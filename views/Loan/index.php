@@ -103,4 +103,6 @@ $this->title = 'Loans';
         if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
     }
 
+    boxes = document.getElementById('w0-filters'); sum = document.getElementsByClassName("summary")[0]; sum.appendChild(boxes); tops = document.getElementsByTagName("INPUT"); tops[0].placeholder = "id"; tops[1].placeholder = "user id"; tops[2].placeholder = "Amount"; tops[3].placeholder = "interest"; tops[4].placeholder = "duration"; tops[5].placeholder = "Start Date"; tops[6].placeholder = "End Date"; tops[7].placeholder = "campaign"; // tops[8].placeholder = "Status";
+
 </script>
