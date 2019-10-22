@@ -59,21 +59,9 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-       <?= Breadcrumbs::widget([
-    //'options' => ['style' => 'margin-top:0;'],
 
-    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-   'links' =>    [
-    ['label' => 'Create Loan',   // required
-    'url' => 'loan/create',      // optional, will be processed by Url::to()
-],
-   ['label' => 'Show Loans',   // required
-    'url' => 'loan/index',      // optional, will be processed by Url::to()
-]]
-
-
-        ]) ?>
     <div class="container">
+    
  
         <?= Alert::widget() ?>
         <?= $content ?>

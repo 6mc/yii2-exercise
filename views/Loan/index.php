@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\Loan;
+use yii\widgets\LinkPager;
+use yii\widgets\Breadcrumbs;
 //use Yii;
 
 /* @var $this yii\web\View */
@@ -16,6 +18,21 @@ $this->title = 'Loans';
 
 ?>
 
+           <?= Breadcrumbs::widget([
+    //'options' => ['style' => 'margin-top:0;'],
+
+    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+   'links' =>    [
+    ['label' => 'Create Loan',   // required
+    'url' => 'index.php?r=loan/create',      // optional, will be processed by Url::to()
+],
+   ['label' => 'Show Loans',   // required
+    'url' => 'index.php?r=loan/index',      // optional, will be processed by Url::to()
+]]
+
+
+        ]) ?>
+
 
 
 <div class="loan-index">
@@ -24,7 +41,7 @@ $this->title = 'Loans';
   
 
     <?= GridView::widget([
-   
+        'filterModel' => $searchModel,
         'options' => ['class'=>'ctn'],
         'summary' => '<p class="summary">Total amount: <strong class="total">'.$total.' €</strong></p>',
        //'rowOptions'  => ['class'=>'td'],
@@ -61,7 +78,9 @@ $this->title = 'Loans';
   //         ],
 
         ],
-    ]); ?>
+    ]);
+
+     ?>
 
 
 </div>

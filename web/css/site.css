@@ -12,8 +12,9 @@ a {
 }
 .breadcrumb
 {
-    width: 100%;
-    margin-top: 3.8%;
+    /*position: fixed;
+    */width: 100%;
+    /*margin-top:.1%;*/
     text-align: center;
     height: auto;
 

@@ -4,7 +4,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Loan;
+use app\models\LoanSearch;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,14 +39,25 @@ class LoanController extends Controller
 
     public function actionIndex()
     {
+             $searchModel = new LoanSearch();
+        $sdataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+
+
         $dataProvider = new ActiveDataProvider([
             'query' => Loan::find(),
             'pagination' => [ 'pageSize' => 10 ],
             'sort'=> ['defaultOrder' => ['id'=>SORT_ASC]]
         ]);
+
+        
+    $pages = new Pagination(['totalCount' => 70, 'pageSize' => 10]);
+
         $total= Loan::total();
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $sdataProvider ,
+            'searchModel' => $searchModel,
+            'pages' => $pages,
             'total' => $total
          ]);
     }
