@@ -33,16 +33,19 @@ class LoanController extends Controller
      * Lists all Loan models.
      * @return mixed
      */
+    
+
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Loan::find(),
             'pagination' => [ 'pageSize' => 10 ]
         ]);
-
+        $total= Loan::total();
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-        ]);
+            'total' => $total
+         ]);
     }
 
     /**
@@ -67,7 +70,7 @@ class LoanController extends Controller
     {
         $model = new Loan();
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())&& $model->validate() && $model->save()) {
           
 
            return $this->redirect(['view', 'id' => $model->id]);
@@ -89,7 +92,7 @@ class LoanController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

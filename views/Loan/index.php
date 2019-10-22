@@ -23,7 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
    
-        'options' => ['class'=>'grid'],
+        'options' => ['class'=>'ctn'],
+        'summary' => '<p class="summary">Total amount: <strong class="total">'.$total.' €</strong></p>',
        //'rowOptions'  => ['class'=>'td'],
        'rowOptions'  => ['class'=> 'td'],
        'filterRowOptions'  => ['class'=>'filterrow'],
@@ -57,5 +58,15 @@ $this->params['breadcrumbs'][] = $this->title;
     for (var i = rows.length - 1; i >= 0; i--) {
         if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
     }
+        
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
+
+
+    for (var i = rows.length - 1; i >= 0; i--) {
+        if (rows[i].cells[7].innerHTML>date) {rows[i].className="td red"}
+    }
+    
+
 
 </script>

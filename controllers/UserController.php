@@ -102,6 +102,7 @@ class UserController extends Controller
         // return $model;
         
         $model->load(Yii::$app->request->post());
+         $model->validate();
         $model->save();
         // return $model;
          return $this->redirect(['view', 'id' => $model->id]);

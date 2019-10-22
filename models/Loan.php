@@ -43,6 +43,19 @@ class Loan extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function total()
+    {
+        $Loans = Loan::find()->all();
+        $total=0;
+        foreach ($Loans as $Loan) {
+            $total += $Loan->amount;
+                    }
+
+       return $total;
+
+    }
+
+
     /**
      * {@inheritdoc}
      */
