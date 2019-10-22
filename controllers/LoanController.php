@@ -84,9 +84,10 @@ class LoanController extends Controller
     {
         $model = new Loan();
         
-        if ($model->load(Yii::$app->request->post())&& $model->validate() && $model->save()) {
-          
-
+        if ($model->load(Yii::$app->request->post())&& $model->validate() && \app\models\User::find()->where(['id'=>$model->user_id])->one()->age()>18) {
+        
+           
+            $model->save();
            return $this->redirect(['view', 'id' => $model->id]);
         }
 
