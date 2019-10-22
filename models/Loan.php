@@ -39,7 +39,8 @@ class Loan extends \yii\db\ActiveRecord
             [['amount', 'interest'], 'number'],
             [['start_date', 'end_date'], 'safe'],
             [['status'], 'boolean'],
-           [['status'], 'default', 'value'=> true] 
+           [['status'], 'default', 'value'=> true],
+           ["user_id", "exist", "targetClass" => "\app\models\User", "targetAttribute" => "id","message"=>"User Not Found"],
         ];
     }
 

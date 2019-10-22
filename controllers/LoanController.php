@@ -39,7 +39,8 @@ class LoanController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Loan::find(),
-            'pagination' => [ 'pageSize' => 10 ]
+            'pagination' => [ 'pageSize' => 10 ],
+            'sort'=> ['defaultOrder' => ['id'=>SORT_ASC]]
         ]);
         $total= Loan::total();
         return $this->render('index', [
@@ -80,6 +81,15 @@ class LoanController extends Controller
             'model' => $model,
         ]);
     }
+
+
+        public function actionDeactivate()
+    {
+        
+ return $this->render('create', [
+            'model' => $model,
+        ]);
+            }
 
     /**
      * Updates an existing Loan model.

@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'user_id',
             'amount',
@@ -45,8 +44,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'end_date',
             'campaign',
             'status:boolean',
+            ['class' => 'yii\grid\ActionColumn']
+  // [
 
-            ['class' => 'yii\grid\ActionColumn'],
+  //                 'format' => 'raw',
+
+  //                 'value' => function($data) {
+
+  //                       return Html::a('Deactive', [ 'Deactivate' ], ['class' => 'btn']);
+
+  //                 }
+
+
+  //         ],
+
         ],
     ]); ?>
 
@@ -54,13 +65,10 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <script type="text/javascript"> 
     rows = document.getElementsByClassName('td');
-
-    for (var i = rows.length - 1; i >= 0; i--) {
-        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
-    }
-        
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
+
+        
 
 
     for (var i = rows.length - 1; i >= 0; i--) {
@@ -68,5 +76,8 @@ $this->params['breadcrumbs'][] = $this->title;
     }
     
 
+    for (var i = rows.length - 1; i >= 0; i--) {
+        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
+    }
 
 </script>

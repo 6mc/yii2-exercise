@@ -6,6 +6,9 @@ use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Loan */
 /* @var $form yii\widgets\ActiveForm */
+
+
+
 ?>
 
 <div class="loan-form">
@@ -37,6 +40,7 @@ use kartik\date\DatePicker;
     ]
 ]) ?>
 
+    <?= $form->field($model, 'status')->checkbox()->label('Active') ?>
 
     <?= $form->field($model, 'campaign')->textInput() ?>
 
@@ -47,3 +51,11 @@ use kartik\date\DatePicker;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script type="text/javascript">
+    
+    if (document.title.includes("Create")) {elem = document.getElementsByClassName('field-loan-status')[0];
+    elem.parentNode.removeChild(elem);
+}
+
+</script>
