@@ -31,39 +31,50 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'CreditStar',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top main',
         ],
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Add', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => 'Loans', 'url' => ['/loan/index']],
+            ['label' => 'Users', 'url' => ['/user/index']],
+            ['label' => 'Homepage', 'url' => ['/site']]
+            // Yii::$app->user->isGuest ? (
+            //     ['label' => 'Login', 'url' => ['/site/login']]
+            // ) : (
+            //     '<li>'
+            //     . Html::beginForm(['/site/logout'], 'post')
+            //     . Html::submitButton(
+            //         'Logout (' . Yii::$app->user->identity->username . ')',
+            //         ['class' => 'btn btn-link logout']
+            //     )
+            //     . Html::endForm()
+            //     . '</li>'
+            // )
         ],
     ]);
     NavBar::end();
     ?>
+       <?= Breadcrumbs::widget([
+    //'options' => ['style' => 'margin-top:0;'],
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+   'links' =>    [
+    ['label' => 'Create Loan',   // required
+    'url' => 'loan/create',      // optional, will be processed by Url::to()
+],
+   ['label' => 'Show Loans',   // required
+    'url' => 'loan/index',      // optional, will be processed by Url::to()
+]]
+
+
         ]) ?>
+    <div class="container">
+ 
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>

@@ -9,17 +9,19 @@ use app\models\Loan;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Loans';
-$this->params['breadcrumbs'][] = $this->title;
+
+
+//$this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
+
+
 
 <div class="loan-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Loan', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+  
+  
 
     <?= GridView::widget([
    
@@ -68,7 +70,9 @@ $this->params['breadcrumbs'][] = $this->title;
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
 
-        
+         for (var i = rows.length - 1; i >= 0; i--) {
+        if (rows[i].cells[4].innerHTML<10) {rows[i].className="td yellow"}
+    }
 
 
     for (var i = rows.length - 1; i >= 0; i--) {

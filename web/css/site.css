@@ -10,6 +10,19 @@ a {
 	color:black;
 	
 }
+.breadcrumb
+{
+    width: 100%;
+    margin-top: 3.8%;
+    text-align: center;
+    height: auto;
+
+}
+
+
+#w1{
+    background-color: white;
+}
 .summary{
     font-size: 130%;
 }
@@ -30,9 +43,9 @@ border-color: #d3d3d3;
     color:black;
 }
 
-.table {
+.yellow {
 	
-	
+	color:#fa9e1a;
 }
 
 .headerrow{
