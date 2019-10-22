@@ -29,6 +29,16 @@ return [
         return 'user';   
     }
 
+
+      public function getLoans()
+
+    {
+
+        return $this->hasMany(Loan::className(), ['user_id' => 'id']);
+
+    }
+
+
     /**
      * {@inheritdoc}
      */

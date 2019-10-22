@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Breadcrumbs;
-// use app\models\User;
+ use app\models\Loan;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -13,11 +13,13 @@ $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-<p><?php //  echo User::find()->where(['id'=>'7472'])->one()->age(); 
+<p><?php 
+
+ //print_r( User::find()->where(['id'=>'7472'])->one()->loans); 
 
 
 
-
+print_r( Loan::find()->where(['id'=>'36470'])->one()->user);
 
 //Yii::$app->User->age()
 ?></p>
@@ -29,10 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
    'links' =>    [
-    ['label' => 'Create Loan',   // required
+    ['label' => 'Create User',   // required
     'url' => 'index.php?r=user/create',      // optional, will be processed by Url::to()
 ],
-   ['label' => 'Show Loans',   // required
+   ['label' => 'Show Users',   // required
     'url' => 'index.php?r=user/index',      // optional, will be processed by Url::to()
 ]]
 
