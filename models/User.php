@@ -23,16 +23,16 @@ return [
         ['lang', 'string']
     ];
 }
-
+// I wanted to validate that first name doesn't include any number's or characters
     public static function tableName()   
     {   
         return 'user';   
-    }
+    } // Our table in database
 
 
       public function getLoans()
 
-    {
+    { // An user can have many loans
 
         return $this->hasMany(Loan::className(), ['user_id' => 'id']);
 
