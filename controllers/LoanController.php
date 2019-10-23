@@ -44,11 +44,7 @@ class LoanController extends Controller
 
 
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => Loan::find(),
-            'pagination' => [ 'pageSize' => 10 ],
-            'sort'=> ['defaultOrder' => ['id'=>SORT_ASC]]
-        ]);
+        // Returning filtered data
 
         
     $pages = new Pagination(['totalCount' => 70, 'pageSize' => 10]);
@@ -83,7 +79,7 @@ class LoanController extends Controller
     public function actionCreate()
     {
         $model = new Loan();
-        
+        // Below I validated data and made sure that user is above 18
         if ($model->load(Yii::$app->request->post())&& $model->validate() && \app\models\User::find()->where(['id'=>$model->user_id])->one()->age()>18) {
         
            
@@ -97,13 +93,7 @@ class LoanController extends Controller
     }
 
 
-        public function actionDeactivate()
-    {
-        
- return $this->render('create', [
-            'model' => $model,
-        ]);
-            }
+  
 
     /**
      * Updates an existing Loan model.
@@ -116,8 +106,9 @@ class LoanController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && \app\models\User::find()->where(['id'=>$model->user_id])->one()->age()>18 ) {
+           $model->save();
+  return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
