@@ -41,11 +41,11 @@ class Loan extends \yii\db\ActiveRecord
             [['status'], 'boolean'],
            [['status'], 'default', 'value'=> true],
            ["user_id", "exist", "targetClass" => "\app\models\User", "targetAttribute" => "id","message"=>"User Not Found"],
-        ];
+        ]; // Here we are validating that user is in our database (last rule)
     }
 
-    public static function total()
-    {
+    public static function total() // I have created this function to call it when I need to calculate total amount of loans
+    {. // there's an Example in loancontroller's index function
         $Loans = Loan::find()->all();
         $total=0;
         foreach ($Loans as $Loan) {
@@ -59,7 +59,7 @@ class Loan extends \yii\db\ActiveRecord
       public function getUser()
 
     {
-
+     // Each loan belongs to one user
         return $this->hasOne(User::className(), ['id' => 'user_id']);
 
     }
