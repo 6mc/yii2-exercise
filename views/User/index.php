@@ -15,35 +15,35 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-index">
 <p><?php 
 
- //print_r( User::find()->where(['id'=>'7472'])->one()->loans); 
+ 
 
 
 
-//print_r( Loan::find()->where(['id'=>'36470'])->one()->user->first_name);
 
-//Yii::$app->User->age()
+
+
 ?></p>
     <h1><?= Html::encode($this->title) ?></h1>
 
    
-             <?= Breadcrumbs::widget([
-    //'options' => ['style' => 'margin-top:0;'],
+             <?= Breadcrumbs::widget([ //using breadcrumb for User
+    
 
-    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    
    'links' =>    [
-    ['label' => 'Create User',   // required
-    'url' => 'index.php?r=user/create',      // optional, will be processed by Url::to()
+    ['label' => 'Create User',   
+    'url' => 'index.php?r=user/create',     
 ],
-   ['label' => 'Show Users',   // required
-    'url' => 'index.php?r=user/index',      // optional, will be processed by Url::to()
+   ['label' => 'Show Users',   
+    'url' => 'index.php?r=user/index',      
 ]]
 
 
         ]) ?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+   
 
-    <?= GridView::widget([
+    <?= GridView::widget([ // using GridView widget
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
