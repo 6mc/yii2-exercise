@@ -42,8 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
-
-    <?php $loans =  User::find()->where(['id'=>'7472'])->one()->loans;
+       // Here first we find the loans of the user. With the help of relations of models
+    <?php $loans =  User::find()->where(['id'=>$model->id])->one()->loans;
         echo "<h1>Loans</h1> <tr>
   <table class ='table table-striped table-bordered detail-view' style='width:100%'>
     <th>Amount</th>
