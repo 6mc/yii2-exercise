@@ -13,21 +13,19 @@ use yii\widgets\Breadcrumbs;
 $this->title = 'Loans';
 
 
-//$this->params['breadcrumbs'][] = $this->title;
+
 
 
 ?>
 
-           <?= Breadcrumbs::widget([
-    //'options' => ['style' => 'margin-top:0;'],
-
-    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+           <?= Breadcrumbs::widget([ // I used breadcrumb as a sub-navbar
+ 
    'links' =>    [
-    ['label' => 'Create Loan',   // required
-    'url' => 'index.php?r=loan/create',      // optional, will be processed by Url::to()
+    ['label' => 'Create Loan',   
+    'url' => 'index.php?r=loan/create',      
 ],
-   ['label' => 'Show Loans',   // required
-    'url' => 'index.php?r=loan/index',      // optional, will be processed by Url::to()
+   ['label' => 'Show Loans',  
+    'url' => 'index.php?r=loan/index',      
 ]]
 
 
@@ -40,17 +38,17 @@ $this->title = 'Loans';
   
   
 
-    <?= GridView::widget([
+    <?= GridView::widget([ // I used yii GridView widget to display data in order
         'filterModel' => $searchModel,
         'options' => ['class'=>'ctn'],
         'summary' => '<p class="summary">Total amount: <strong class="total">'.$total.' €</strong></p>',
-       //'rowOptions'  => ['class'=>'td'],
+       
        'rowOptions'  => ['class'=> 'td'],
        'filterRowOptions'  => ['class'=>'filterrow'],
        'captionOptions'  => ['class'=>'caps'],
        'headerRowOptions'  => ['class'=>'headerrow'],
        'tableOptions'  => ['class'=>'table'],
-       // 'columns'  =>['class'=>'row'],
+       
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -64,18 +62,6 @@ $this->title = 'Loans';
             'campaign',
             'status:boolean',
             ['class' => 'yii\grid\ActionColumn']
-  // [
-
-  //                 'format' => 'raw',
-
-  //                 'value' => function($data) {
-
-  //                       return Html::a('Deactive', [ 'Deactivate' ], ['class' => 'btn']);
-
-  //                 }
-
-
-  //         ],
 
         ],
     ]);
@@ -84,25 +70,25 @@ $this->title = 'Loans';
 
 
 </div>
-<script type="text/javascript"> 
+<script type="text/javascript"> // Injected Javascript When built-in customization not enough
     rows = document.getElementsByClassName('td');
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();    
 
          for (var i = rows.length - 1; i >= 0; i--) {
-        if (rows[i].cells[4].innerHTML<10) {rows[i].className="td yellow"}
+        if (rows[i].cells[4].innerHTML<10) {rows[i].className="td yellow"} // first colored the rows with yellow if their interest is lower than 10
     }
 
 
     for (var i = rows.length - 1; i >= 0; i--) {
-        if (rows[i].cells[7].innerHTML>date) {rows[i].className="td red"}
+        if (rows[i].cells[7].innerHTML>date) {rows[i].className="td red"} // then colored it to red when there's still time to end date
     }
     
 
     for (var i = rows.length - 1; i >= 0; i--) {
-        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"}
+        if (rows[i].cells[9].innerHTML=="No") {rows[i].className="td deactive"} //then I colored it to Gray if its status is 0
     }
-
+                                                                                // Below I relocated the search inputs to give it similar look to your example
     boxes = document.getElementById('w0-filters'); sum = document.getElementsByClassName("summary")[0]; sum.appendChild(boxes); tops = document.getElementsByTagName("INPUT"); tops[0].placeholder = "id"; tops[1].placeholder = "user id"; tops[2].placeholder = "Amount"; tops[3].placeholder = "interest"; tops[4].placeholder = "duration"; tops[5].placeholder = "Start Date"; tops[6].placeholder = "End Date"; tops[7].placeholder = "campaign"; // tops[8].placeholder = "Status";
 
 </script>
