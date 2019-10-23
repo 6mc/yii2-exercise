@@ -66,11 +66,11 @@ class UserController extends Controller
     {
         $model = new User();
 
-      //  return Yii::$app->request->post();
+      
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() &&  $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-       // return  Yii::$app->request->post();
+     
         }
 
         return $this->render('create', [
@@ -88,23 +88,19 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
          $model = User::find()->where(['id'=>$id])->one();
-       // $model = User::find($id);
+      
 
         if (Yii::$app->request->post()) {
-       // return "here";
-       //return strval($model);
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
       
-     //   return $id;
-       // return Yii::$app->request->post();
        
-        // return json_encode($model, true);
-        // return $model;
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+ 
+       
         
         $model->load(Yii::$app->request->post());
          $model->validate();
         $model->save();
-        // return $model;
+   
          return $this->redirect(['view', 'id' => $model->id]);
         }
 
