@@ -23,7 +23,7 @@ return [
         ['lang', 'string']
     ];
 }
-// I wanted to validate that first name doesn't include any number's or characters
+// I wanted to validate that first name doesn't include any numbers or characters
     public static function tableName()   
     {   
         return 'user';   
