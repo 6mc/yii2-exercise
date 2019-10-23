@@ -11,7 +11,7 @@ class UserTest extends \Codeception\Test\Unit
 
         expect_not(User::findIdentity(999));
     }
-    public function testCalculateAge()
+    public function testCalculateAge() //asserting that age calculation done right
     {
         expect_that($user = User::find(7520));
         expect($user->age())->equals('25');
