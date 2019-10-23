@@ -11,7 +11,13 @@ class UserTest extends \Codeception\Test\Unit
 
         expect_not(User::findIdentity(999));
     }
+    public function testCalculateAge()
+    {
+        expect_that($user = User::find(7520));
+        expect($user->age()->equals('25');
 
+    }
+    
     public function testFindUserByAccessToken()
     {
         expect_that($user = User::findIdentityByAccessToken('100-token'));
