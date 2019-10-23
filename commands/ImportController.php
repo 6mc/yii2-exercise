@@ -32,7 +32,7 @@ class ImportController extends Controller
         
         foreach ($loans as $loan) {
             $model = new Loan;
-          //  $model->load($loan);
+          // Create New record for each element in loan
             $model->id = $loan['id'];
             $model->user_id = $loan['user_id'];
             $model->amount = $loan['amount'];
@@ -52,18 +52,16 @@ class ImportController extends Controller
 
     public function actionUsers()
     {
-     //   echo $message . "\n";
+    
     
     $users	=file_get_contents("./users.json");
-    //echo $users;
+   
     $usersArr = json_decode($users, true);
 
     foreach ($usersArr as $user) {
-        # code...
+        
         $model = new User();
-      //  $model->first_name = $user["first_name"];
-       // $model->last_name = $user["last_name"];
-       // $model->load($user);
+      
         $model->first_name = $user["first_name"];
         $model->last_name = $user["last_name"];
         $model->id = $user["id"];
